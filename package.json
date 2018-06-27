@@ -1,0 +1,24 @@
+{
+  "name": "twitter-analyzer-api",
+  "version": "1.0.0",
+  "description": "> Generate a Filter-Map-Reduce implementation from Tweets that are obtained from Twitter in certain time. And presente the information using graphs, diagrams, tables or any visual resource for explanation purpose.",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoRob/twitter-analyzer.git"
+  },
+  "author": "marcorob",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcoRob/twitter-analyzer/issues"
+  },
+  "homepage": "https://github.com/MarcoRob/twitter-analyzer#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}

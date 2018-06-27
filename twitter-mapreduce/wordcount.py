@@ -1,8 +1,3 @@
-"""
-Serial program to count words from a text file
-Usage: python serial-wordcount.py <filename>
-"""
-
 import sys
 import string
 

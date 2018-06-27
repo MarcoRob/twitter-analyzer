@@ -12,7 +12,7 @@ app.use(bodyparser.json())
 
 
 app.get("/api/counts", function(req, res){
-  var filename = "twitter-mapreduce/serial_sorted.txt"
+  var filename = "twitter-mapreduce/sorted.txt"
   /*fs.readFile(filename, 'utf8', function(err, data) {
     if (err) throw err;
     console.log('OK: ' + filename);
@@ -25,14 +25,17 @@ app.get("/api/counts", function(req, res){
       console: false
   });
   var obj = {}
-  res.write("<table border='1' padding='50em'><tr><td><b>Name</b></td><td><b>Count</b></td></tr>")
+  var head = '<!DOCTYPE html><html><head><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Twitter Analizer</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" type="text/css" media="screen" href="main.css" /><script src="main.js"></script></head><body>'
+  res.write(head)
+  res.write("<table border='1' padding='50em'><tr><th style='padding:1rem; background-color: #4CAF50; color: white;'><b>Name</b></th>" +
+            "<th style='background-color: #4CAF50; color: white;'><b>Count</b></th></tr>")
   rd.on('line', function(line) {
       var regex = /(mex)|(mx)|(Mex)|(MEX)|(suec)|(Suec)|(SUEC)\w/g
       if(regex.test(line) === true) {
         console.log(true)
         console.log(line)
         var data = line.split("\t");
-        res.write("<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>")
+        res.write("<tr><td style='padding:1rem'>"+data[0]+"</td><td align='center'>"+data[1]+"</td></tr>")
       }
       
       //console.log(JSON.stringify(obj))
